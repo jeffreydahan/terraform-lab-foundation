@@ -38,7 +38,7 @@ variable "sql_db_name" {
 variable "sql_db_version" {
   type        = string
   description = "Version of Cloud SQL instance"
-  default     = "MYSQL_5_7"
+  default     = "POSTGRES_14"
 }
 
 variable "sql_user_host" {
