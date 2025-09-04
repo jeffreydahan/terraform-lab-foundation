@@ -1,7 +1,7 @@
 ## https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance
-resource "google_sql_database_instance" "mysql" {
+resource "google_sql_database_instance" "main" {
   # TODO: Set this option as a variable
-  database_version = "MYSQL_5_7"
+  database_version = "POSTGRES_14"
   name             = var.sql_db_name
   project          = var.gcp_project_id
   region           = var.gcp_region
