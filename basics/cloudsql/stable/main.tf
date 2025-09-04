@@ -1,5 +1,5 @@
 ## https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance
-resource "google_sql_database_instance" "mysql" {
+resource "google_sql_database_instance" "postgres" {
   # TODO: Set this option as a variable
   database_version = "POSTGRES_14"
   name             = var.sql_db_name
@@ -24,13 +24,13 @@ resource "google_sql_database_instance" "mysql" {
 ## Ensure the Database has a unique name to prevent database name clash.
 resource "google_sql_database" "database" {
   name     = "${var.gcp_project_id}-${var.sql_db_name}"
-  instance = google_sql_database_instance.mysql.name
+  instance = google_sql_database_instance.postgres.name
 }
 
 ## https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_user
 resource "google_sql_user" "users" {
   name     = var.sql_user_name 
-  instance = google_sql_database_instance.mysql.name
+  instance = google_sql_database_instance.postgres.name
   host     = var.sql_user_host 
   password = var.sql_user_password 
 }
