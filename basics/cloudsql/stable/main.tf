@@ -1,5 +1,5 @@
 ## https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/sql_database_instance
-resource "google_sql_database_instance" "main" {
+resource "google_sql_database_instance" "mysql" {
   # TODO: Set this option as a variable
   database_version = "POSTGRES_14"
   name             = var.sql_db_name
